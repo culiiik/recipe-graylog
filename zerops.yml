@@ -24,7 +24,7 @@ greylog:
 
         
     init:
-        - echo `date
+        - echo `date`
       
       
     start: /var/www/run.sh

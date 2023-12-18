@@ -27,4 +27,4 @@ greylog:
         - echo `date`
       
       
-    start: /var/www/run.sh
+    start: sudo /var/www/run.sh

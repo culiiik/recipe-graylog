@@ -4,27 +4,12 @@ greylog:
       - go@1
     build:
       - echo `date`
-    deploy: [ "." ]
+    deploy: [ . ]
   run:
     prepare:
-        
-        
-        #- sudo apt-get install gnupg curl
-        #- curl -fsSL https://pgp.mongodb.com/server-6.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg --dearmor
-        #- echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-        #- sudo apt-get -y update
-        #- sudo apt-get install -y mongodb-org
-        #- sudo apt-get -y install prometheus
-        # - sudo systemctl enable prometheus.service
-        #- sudo systemctl daemon-reload
-        #- sudo systemctl enable mongod.service
-        #- sudo systemctl restart mongod.service
-        #- sudo systemctl --type=service --state=active | grep mongod
         - ls -la /var/www/
-        - sudo chmod +x /var/www/run.sh
         
     init:
         - echo `date`
-      
       
     start: sudo /var/www/run.sh

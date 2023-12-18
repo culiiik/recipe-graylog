@@ -1,11 +1,10 @@
 greylog:
   build:
-   
     base: 
       - go@1
     build:
       - echo `date`
-    deploy: [.]
+    deploy: [ run.sh ]
   run:
     prepare:
         

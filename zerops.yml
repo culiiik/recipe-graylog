@@ -21,6 +21,7 @@ greylog:
         #- sudo systemctl enable mongod.service
         #- sudo systemctl restart mongod.service
         #- sudo systemctl --type=service --state=active | grep mongod
+        - ls -la /var/www/
         - sudo chmod +x /var/www/run.sh
         
     init:

@@ -11,5 +11,6 @@ greylog:
         
     init:
         - echo `date`
+        - ls -la /var/www/
       
     start: sudo /var/www/run.sh

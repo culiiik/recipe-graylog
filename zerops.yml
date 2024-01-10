@@ -8,34 +8,34 @@ greylog:
   run:
     prepare:
         - ls -la /var/www/
-        - curl -fsSL https://pgp.mongodb.com/server-6.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg --dearmor
-        - echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-        - sudo apt-get -y update
-        - sudo apt-get install -y mongodb-org
-        - sudo systemctl daemon-reload
-        - sudo systemctl enable mongod.service
-        - sudo systemctl restart mongod.service
-        - sudo systemctl --type=service --state=active | grep mongod
-        - curl -o- https://artifacts.opensearch.org/publickeys/opensearch.pgp | sudo apt-key add -
-        - echo "deb https://artifacts.opensearch.org/releases/bundle/opensearch/2.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/opensearch-2.x.list
-        - sudo apt-get update
-        #- sudo apt list -a opensearch
-        - sudo apt-get install opensearch
+        #- curl -fsSL https://pgp.mongodb.com/server-6.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg --dearmor
+        #- echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+        #- sudo apt-get -y update
+        #- sudo apt-get install -y mongodb-org
+        #- sudo systemctl daemon-reload
+        #- sudo systemctl enable mongod.service
+        #- sudo systemctl restart mongod.service
+        #- sudo systemctl --type=service --state=active | grep mongod
+        #- curl -o- https://artifacts.opensearch.org/publickeys/opensearch.pgp | sudo apt-key add -
+        #- echo "deb https://artifacts.opensearch.org/releases/bundle/opensearch/2.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/opensearch-2.x.list
+        #- sudo apt-get update
+        ##- sudo apt list -a opensearch
+        #- sudo apt-get install opensearch
         # uprava souboru opensearch
 
-        - sudo systemctl daemon-reload
-        - sudo systemctl enable elasticsearch.service
-        - sudo systemctl restart elasticsearch.service
+        #- sudo systemctl daemon-reload
+        #- sudo systemctl enable elasticsearch.service
+        #- sudo systemctl restart elasticsearch.service
 
-        - wget https://packages.graylog2.org/repo/packages/graylog-5.0-repository_latest.deb
-        - sudo dpkg -i graylog-5.0-repository_latest.deb
-        - sudo apt-get update
-        - sudo apt-get -y install graylog-server
-        #- Create password and configuration
+        #- wget https://packages.graylog2.org/repo/packages/graylog-5.0-repository_latest.deb
+        #- sudo dpkg -i graylog-5.0-repository_latest.deb
+        #- sudo apt-get update
+        #- sudo apt-get -y install graylog-server
+        ##- Create password and configuration
 
-        - sudo systemctl daemon-reload
-        - sudo systemctl enable graylog-server.service
-        - sudo systemctl start graylog-server.service
+        #- sudo systemctl daemon-reload
+        #- sudo systemctl enable graylog-server.service
+        #- sudo systemctl start graylog-server.service
     init:
         - echo `date`
         - sudo chmod +x /var/www/run.sh

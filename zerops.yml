@@ -24,11 +24,11 @@ zerops:
           - echo "deb https://artifacts.opensearch.org/releases/bundle/opensearch/2.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/opensearch-2.x.list
           - sudo apt-get -y update
           - sudo echo "OPENSEARCH_INITIAL_ADMIN_PASSWORD=\"MyStrongPassword123\"" >> /etc/environment
-          ##- sudo apt list -a opensearch
           - sudo apt-get install -y opensearch
           # uprava souboru opensearch
-          #- sudo cp /var/www/opensearch.yml /etc/opensearch/
-          #- sudo cp /var/www/jvm.options /etc/opensearch/
+          - sudo cp /var/www/opensearch.yml /etc/opensearch/
+          - sudo cp /var/www/jvm.options /etc/opensearch/
+          - echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
           - sudo systemctl daemon-reload
           - sudo systemctl enable opensearch.service
           #- sudo systemctl restart opensearch.service
@@ -43,7 +43,7 @@ zerops:
           #- sudo systemctl enable graylog-server.service
           #- sudo systemctl start graylog-server.service
       ports:
-        - port: 9090
+        - port: 9200
           httpSupport: true
 
       initCommands:

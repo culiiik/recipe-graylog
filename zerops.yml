@@ -18,7 +18,6 @@ zerops:
           #- sudo systemctl daemon-reload
           #- sudo systemctl enable mongod.service
           #- sudo systemctl restart mongod.service
-          - sudo systemctl --type=service --state=active | grep mongod
           - echo "Installing OpenSearch"
           - curl -o- https://artifacts.opensearch.org/publickeys/opensearch.pgp | sudo apt-key add -
           - echo "deb https://artifacts.opensearch.org/releases/bundle/opensearch/2.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/opensearch-2.x.list

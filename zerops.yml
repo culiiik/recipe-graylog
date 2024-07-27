@@ -9,6 +9,8 @@ zerops:
     run:
       os: ubuntu
       base:  go@1.22
+      envVariables:
+        OPENSEARCH_INITIAL_ADMIN_PASSWORD: "admin"
       prepareCommands:
           - ls -la /var/www/
           - curl -fsSL https://pgp.mongodb.com/server-6.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg --dearmor

@@ -15,9 +15,9 @@ zerops:
           - echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
           - sudo apt-get -y update
           - sudo apt-get install -y mongodb-org
-          - sudo systemctl daemon-reload
-          - sudo systemctl enable mongod.service
-          - sudo systemctl restart mongod.service
+          #- sudo systemctl daemon-reload
+          #- sudo systemctl enable mongod.service
+          #- sudo systemctl restart mongod.service
           - sudo systemctl --type=service --state=active | grep mongod
           - echo "Installing OpenSearch"
           - curl -o- https://artifacts.opensearch.org/publickeys/opensearch.pgp | sudo apt-key add -
@@ -26,12 +26,9 @@ zerops:
           - sudo echo "OPENSEARCH_INITIAL_ADMIN_PASSWORD=\"MyStrongPassword123\"" >> /etc/environment
           - sudo apt-get install -y opensearch
           # uprava souboru opensearch
-          - sudo cp /var/www/opensearch.yml /etc/opensearch/
-          - sudo cp /var/www/jvm.options /etc/opensearch/
+
           - echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
-          - sudo systemctl daemon-reload
-          - sudo systemctl enable opensearch.service
-          - sudo systemctl restart opensearch.service
+          
 
           - wget https://packages.graylog2.org/repo/packages/graylog-5.0-repository_latest.deb
           - sudo dpkg -i graylog-5.0-repository_latest.deb
@@ -42,6 +39,15 @@ zerops:
           #- sudo systemctl daemon-reload
           #- sudo systemctl enable graylog-server.service
           #- sudo systemctl start graylog-server.service
+      initCommands:
+        - sudo cp /var/www/opensearch.yml /etc/opensearch/
+        - sudo cp /var/www/jvm.options /etc/opensearch/
+        - sudo systemctl daemon-reload
+        - sudo systemctl enable mongod.service
+        - sudo systemctl restart mongod.service
+        - sudo systemctl enable opensearch.service
+
+        - sudo systemctl restart opensearch.service
       ports:
         - port: 9000
           httpSupport: true

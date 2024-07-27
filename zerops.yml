@@ -28,7 +28,7 @@ zerops:
           - sudo apt-get install -y opensearch
           # uprava souboru opensearch
           #- sudo cp /var/www/opensearch.yml /etc/opensearch/
-          - sudo cp /var/www/jvm.options /etc/opensearch/
+          #- sudo cp /var/www/jvm.options /etc/opensearch/
           - sudo systemctl daemon-reload
           - sudo systemctl enable opensearch.service
           #- sudo systemctl restart opensearch.service

@@ -24,19 +24,19 @@ zerops:
           - echo "deb https://artifacts.opensearch.org/releases/bundle/opensearch/2.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/opensearch-2.x.list
           - sudo apt-get -y update
           ##- sudo apt list -a opensearch
-          - sudo apt-get install -y opensearch
+          #- sudo apt-get install -y opensearch
           # uprava souboru opensearch
-          - sudo cp /var/www/opensearch.yml /etc/opensearch/
-          - sudo cp /var/www/jvm.options /etc/opensearch/
+          #- sudo cp /var/www/opensearch.yml /etc/opensearch/
+          #- sudo cp /var/www/jvm.options /etc/opensearch/
 
-          - sudo systemctl daemon-reload
-          - sudo systemctl enable opensearch.service
-          - sudo systemctl restart opensearch.service
+          #- sudo systemctl daemon-reload
+          #- sudo systemctl enable opensearch.service
+          #- sudo systemctl restart opensearch.service
 
-          - wget https://packages.graylog2.org/repo/packages/graylog-5.0-repository_latest.deb
-          - sudo dpkg -i graylog-5.0-repository_latest.deb
-          - sudo apt-get update
-          - sudo apt-get -y install graylog-server
+          #- wget https://packages.graylog2.org/repo/packages/graylog-5.0-repository_latest.deb
+          #- sudo dpkg -i graylog-5.0-repository_latest.deb
+          #- sudo apt-get update
+          #- sudo apt-get -y install graylog-server
           ##- Create password and configuration
 
           #- sudo systemctl daemon-reload

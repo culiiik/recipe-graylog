@@ -3,7 +3,7 @@ zerops:
     build:
       os: ubuntu
       base:  go@1.22
-      deployFiles: [.]
+      deployFiles: [opensearch.yml, jvm.options]
 
 
     run:

@@ -52,4 +52,4 @@ zerops:
         - port: 9000
           httpSupport: true
   
-      start: /usr/share/graylog-server/bin/graylog-server
+      start: sudo /usr/share/graylog-server/bin/graylog-server

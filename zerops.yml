@@ -3,7 +3,7 @@ zerops:
     build:
       os: ubuntu
       base:  go@1.22
-      deployFiles: [opensearch.yml, jvm.options, server.conf]
+      deployFiles: [opensearch.yml, jvm.options, server.conf, run.sh]
 
 
     run:
@@ -48,8 +48,11 @@ zerops:
         - sudo systemctl enable opensearch.service
 
         - sudo systemctl restart opensearch.service
+
+
+        - sudo chmod +x /var/www/run.sh
       ports:
         - port: 9000
           httpSupport: true
   
-      start: sudo /usr/share/graylog-server/bin/graylog-server
+      start: sudo /var/www/run.sh # sudo /usr/share/graylog-server/bin/graylog-server

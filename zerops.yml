@@ -44,14 +44,12 @@ zerops:
           - sudo cp /var/www/server.conf /etc/graylog/server/
           - sudo systemctl daemon-reload
           - sudo systemctl enable mongod.service
-          - sudo systemctl restart mongod.service
           - sudo systemctl enable opensearch.service
-          - sudo systemctl restart opensearch.service
    
-       
+      initCommands:
+        - sudo systemctl restart mongod.service
+        - sudo systemctl restart opensearch.service
 
-
-        #- sudo chmod +x /var/www/run.sh
       ports:
         - port: 9000
           httpSupport: true

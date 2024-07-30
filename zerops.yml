@@ -38,7 +38,7 @@ zerops:
           #- sudo systemctl daemon-reload
           #- sudo systemctl enable graylog-server.service
           #- sudo systemctl start graylog-server.service
-
+      addToRunPrepare:
           - sudo cp /var/www/opensearch.yml /etc/opensearch/
           - sudo cp /var/www/jvm.options /etc/opensearch/
           - sudo cp /var/www/server.conf /etc/graylog/server/
@@ -46,7 +46,6 @@ zerops:
           - sudo systemctl enable mongod.service
           - sudo systemctl restart mongod.service
           - sudo systemctl enable opensearch.service
-
           - sudo systemctl restart opensearch.service
    
        

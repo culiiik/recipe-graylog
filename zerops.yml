@@ -46,7 +46,7 @@ zerops:
         - sudo systemctl enable mongod.service
         - sudo systemctl restart mongod.service
         - sudo systemctl enable opensearch.service
-
+  
         - sudo systemctl restart opensearch.service
 
 

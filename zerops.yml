@@ -3,7 +3,7 @@ zerops:
     build:
       os: ubuntu
       base:  go@1.22
-      deployFiles: [opensearch.yml, jvm.options, server.conf, run.sh]
+      deployFiles: [opensearch.yml, jvm.options, server.conf]
 
 
     run:
@@ -38,21 +38,23 @@ zerops:
           #- sudo systemctl daemon-reload
           #- sudo systemctl enable graylog-server.service
           #- sudo systemctl start graylog-server.service
-      initCommands:
-        - sudo cp /var/www/opensearch.yml /etc/opensearch/
-        - sudo cp /var/www/jvm.options /etc/opensearch/
-        - sudo cp /var/www/server.conf /etc/graylog/server/
-        - sudo systemctl daemon-reload
-        - sudo systemctl enable mongod.service
-        - sudo systemctl restart mongod.service
-        - sudo systemctl enable opensearch.service
-  
-        - sudo systemctl restart opensearch.service
+
+          - sudo cp /var/www/opensearch.yml /etc/opensearch/
+          - sudo cp /var/www/jvm.options /etc/opensearch/
+          - sudo cp /var/www/server.conf /etc/graylog/server/
+          - sudo systemctl daemon-reload
+          - sudo systemctl enable mongod.service
+          - sudo systemctl restart mongod.service
+          - sudo systemctl enable opensearch.service
+
+          - sudo systemctl restart opensearch.service
+   
+       
 
 
-        - sudo chmod +x /var/www/run.sh
+        #- sudo chmod +x /var/www/run.sh
       ports:
         - port: 9000
           httpSupport: true
   
-      start: sudo /var/www/run.sh # sudo /usr/share/graylog-server/bin/graylog-server
+      start: sudo /usr/share/graylog-server/bin/graylog-server

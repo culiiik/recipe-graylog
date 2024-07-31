@@ -16,13 +16,16 @@ zerops:
           - sudo apt-get -y update
           
           - sudo apt-get install -y mongodb-org
+          # Set OpenSearch init password into env. Without this OpenSearch will not be installed.
           - sudo echo "OPENSEARCH_INITIAL_ADMIN_PASSWORD=\"MyStrongPassword123\"" >> /etc/environment
           - sudo apt-get install -y opensearch
+          - wget https://packages.graylog2.org/repo/packages/graylog-6.0-repository_latest.deb
+          - sudo dpkg -i graylog-6.0-repository_latest.deb
+          # 
           - echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
           
-          #- wget https://packages.graylog2.org/repo/packages/graylog-6.0-repository_latest.deb
-          #- sudo dpkg -i graylog-6.0-repository_latest.deb
-          - sudo apt-get -y install graylog-server
+          
+          #- sudo apt-get -y install graylog-server
    
       initCommands:
         - sudo cp /var/www/opensearch.yml /etc/opensearch/

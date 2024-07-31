@@ -28,7 +28,7 @@ zerops:
       initCommands:
         - sudo cp /var/www/opensearch.yml /etc/opensearch/
         - sudo cp /var/www/jvm.options /etc/opensearch/
-        #- sudo cp /var/www/server.conf /etc/graylog/server/
+        - sudo cp /var/www/server.conf /etc/graylog/server/
         - sudo systemctl daemon-reload
         - sudo systemctl enable mongod.service
         - sudo systemctl enable opensearch.service

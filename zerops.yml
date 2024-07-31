@@ -21,11 +21,10 @@ zerops:
           - sudo apt-get install -y opensearch
           - wget https://packages.graylog2.org/repo/packages/graylog-6.0-repository_latest.deb
           - sudo dpkg -i graylog-6.0-repository_latest.deb
+          - sudo apt-get -y install graylog-server
           # 
           - echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
           
-          
-          #- sudo apt-get -y install graylog-server
    
       initCommands:
         - sudo cp /var/www/opensearch.yml /etc/opensearch/
